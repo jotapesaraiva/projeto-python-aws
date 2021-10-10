@@ -9,7 +9,6 @@ pipeline {
         APPLICATIONNAME='projeto-python-aws'  // ElasticBeanstalk
         ENVIRONMENTNAME='Projetopythonaws-env' //ElastcBeanstalk
 
-
         FLASK_ENV = 'testing'
         FLASK_APP = 'application.py'
         DEBUG = true
