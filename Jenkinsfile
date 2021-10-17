@@ -7,7 +7,7 @@ pipeline {
         BUILDNAME='${JOB_NAME}-${BUILD_NUMBER}'
         BUCKETNAME='artefactrepository' //S3
         APPLICATIONNAME='projeto-python-aws'  // ElasticBeanstalk
-        ENVIRONMENTNAME='Projetopythonaws-env' //ElastcBeanstalk
+        ENVIRONMENTNAME='projeto-python-aws-env' //ElastcBeanstalk
 
         FLASK_ENV = 'testing'
         FLASK_APP = 'application.py'
@@ -24,7 +24,7 @@ pipeline {
         stage ("Install Dependencies") {
             steps {
                 sh """
-                /usr/local/bin/virtualenv venv
+                virtualenv venv
                 source venv/bin/activate
                 pip install --upgrade pip
                 """
