@@ -34,8 +34,6 @@ pipeline {
             steps {
                 echo 'Compactando arquivo em ZIP'
                 sh"""zip -r ${BUILDNAME}.zip * -x '*venv*'"""
-                echo 'removendo o venv'
-                sh 'rm -rf venv'
             }
         }
 
@@ -73,9 +71,11 @@ pipeline {
                 }
             }
         }
-        stage('remove zip'){
+        stage('remove zip e venv'){
             steps{
                 sh """rm -rf ${BUILDNAME}.zip"""
+                echo 'removendo o venv'
+                sh 'rm -rf venv'
             }
         }
 
