@@ -27,7 +27,19 @@ pipeline {
                 sh "sudo -s"
                 sh "source venv/bin/activate"
                 sh "pip install --upgrade pip"
-                // pip install -r requirements.txt
+                sh "pip install -r requirements.txt"
+                sh "deactivate"
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh '''
+                source bin/activate
+                nosetests app --with-xunit
+                deactivate
+                '''
+                junit "nosetests.xml"
             }
         }
         
