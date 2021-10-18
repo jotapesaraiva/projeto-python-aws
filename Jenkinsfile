@@ -24,7 +24,6 @@ pipeline {
         stage ("Install Dependencies") {
             steps {
                 sh "virtualenv venv"
-                sh "sudo -s"
                 sh "source venv/bin/activate"
                 sh "pip install --upgrade pip"
                 sh "pip install -r requirements.txt"
